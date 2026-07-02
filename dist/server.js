@@ -1,0 +1,171 @@
+import express, {} from "express";
+import { Pool } from "pg";
+import config from "./config";
+const app = express();
+const port = config.port;
+app.use(express.json()); //middleware
+app.use(express.text()); //middleware
+app.use(express.urlencoded({ extended: true })); //nested data gulo nibe extended korar maddhome.
+const pool = new Pool({
+    connectionString: config.connection_string,
+});
+const initDB = async () => {
+    try {
+        await pool.query(`
+           CREATE TABLE IF NOT EXISTS users(
+           id SERIAL PRIMARY KEY,
+           name VARCHAR(20),
+           email VARCHAR(20) UNIQUE NOT NULL,
+           password VARCHAR(20) NOT NULL,
+           is_active BOOLEAN DEFAULT true,
+           age INT,
+           created_at TIMESTAMP DEFAULT NOW(),
+           upadated_at TIMESTAMP DEFAULT NOW()
+           ) 
+            `);
+        console.log("Database connected successfullt!!");
+    }
+    catch (error) {
+        console.log(error);
+    }
+};
+initDB();
+app.get("/", (req, res) => {
+    //   res.send('Hello World!');
+    res.status(200).json({
+        message: "Express Server",
+        author: "Rafsan Rad",
+    });
+});
+app.post("/api/users", async (req, res) => {
+    // console.log(req.body)
+    const { name, email, password, age } = req.body;
+    try {
+        const result = await pool.query(`
+    INSERT INTO users(name,email,password,age) VALUES($1,$2,$3,$4) RETURNING *
+    `, [name, email, password, age]);
+        //   console.log(result);
+        res.status(201).json({
+            success: true,
+            message: "User created successfully.",
+            data: result.rows[0],
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            data: error,
+        });
+    }
+});
+app.get("/api/users", async (req, res) => {
+    try {
+        const result = await pool.query(`
+           SELECT * FROM users 
+            `);
+        res.status(200).json({
+            success: true,
+            message: "Users retrived successfully.",
+            data: result.rows,
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            data: error,
+        });
+    }
+});
+app.get("/api/users/:id", async (req, res) => {
+    const { id } = req.params; //url theke id niye ashlam.
+    try {
+        const result = await pool.query(`
+            SELECT * FROM users WHERE id=$1
+            `, [id]);
+        if (result.rows.length === 0) {
+            //user na thakle seta handle kortesi.
+            res.status(404).json({
+                success: false,
+                message: "User Not Found.",
+                data: {},
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "User retrived successfully.",
+            data: result.rows[0],
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            data: error,
+        });
+    }
+});
+app.put("/api/users/:id", async (req, res) => {
+    const { id } = req.params;
+    const { name, age, password, is_active } = req.body;
+    try {
+        const result = await pool.query(`
+    UPDATE users
+     SET name=COALESCE($1,name),
+     password=COALESCE($2,password),
+     age=COALESCE($3,age),
+     is_active=COALESCE($4,is_active)
+    WHERE id=$5
+    RETURNING *
+    `, [name, password, age, is_active, id]);
+        if (result.rows.length === 0) {
+            res.status(404).json({
+                success: false,
+                message: "User Not Found.",
+            });
+        }
+        // console.log(result)
+        res.status(200).json({
+            success: true,
+            message: "Users updated successfully.",
+            data: result.rows[0],
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            data: error,
+        });
+    }
+});
+app.delete("/api/users/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query(`
+        DELETE FROM users WHERE id=$1 
+        `, [id]);
+        if (result.rowCount === 0) {
+            res.status(404).json({
+                success: false,
+                message: "User Not Found.",
+            });
+        }
+        res.status(200).json({
+            success: true,
+            message: "Users deleted successfully.",
+        });
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: error.message,
+            data: error,
+        });
+    }
+});
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+});
+//# sourceMappingURL=server.js.map
