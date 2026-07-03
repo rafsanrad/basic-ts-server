@@ -1,0 +1,117 @@
+Method->GET Time->1783051332474 Url->/
+
+Method->GET - Time->1783051427757 - Url->/
+
+Method->GET - Time->1783051435332 - Url->/api/users
+
+Method->GET - Time->1783051743715 - Url->/api/users/4
+
+Method->GET - Time->1783051965327 - Url->/api/users/4
+
+Method->GET - Time->1783051988590 - Url->/api/users
+
+Method->GET - Time->1783052014830 - Url->/api/users
+
+Method->GET - Time->1783052017851 - Url->/api/users
+
+Method->GET - Time->1783052230378 - Url->/api/users
+
+Method->GET - Time->1783052271677 - Url->/api/users
+
+Method->GET - Time->1783052335227 - Url->/api/users
+
+Method->POST - Time->1783052389420 - Url->/api/auth/login
+
+Method->GET - Time->1783052467753 - Url->/api/users/
+
+Method->GET - Time->1783052494301 - Url->/api/users/
+
+Method->GET - Time->1783052671511 - Url->/api/users
+
+Method->GET - Time->1783052707794 - Url->/api/users/
+
+Method->GET - Time->1783052727878 - Url->/api/users/
+
+Method->GET - Time->1783053114936 - Url->/api/users/
+
+Method->GET - Time->1783053329303 - Url->/api/users/
+
+Method->GET - Time->1783053423110 - Url->/api/users/
+
+Method->GET - Time->1783053437994 - Url->/api/users/
+
+Method->GET - Time->1783053452432 - Url->/api/users/
+
+Method->GET - Time->1783053573250 - Url->/api/users/
+
+Method->POST - Time->1783053781098 - Url->/api/auth/login
+
+Method->GET - Time->1783053810043 - Url->/api/users/
+
+Method->GET - Time->1783054235969 - Url->/api/users/
+
+Method->GET - Time->1783054355171 - Url->/api/users/
+
+Method->GET - Time->1783054436955 - Url->/api/users/
+
+Method->GET - Time->1783054496152 - Url->/api/users/
+
+Method->GET - Time->1783054535967 - Url->/api/users/
+
+Method->GET - Time->1783054582460 - Url->/api/users/
+
+Method->POST - Time->1783056314947 - Url->/api/users
+
+Method->POST - Time->1783056535513 - Url->/api/users
+
+Method->POST - Time->1783056716646 - Url->/api/users
+
+Method->POST - Time->1783057002955 - Url->/api/auth/login
+
+Method->POST - Time->1783057017379 - Url->/api/auth/login
+
+Method->GET - Time->1783057064201 - Url->/api/users/
+
+Method->GET - Time->1783057097136 - Url->/api/users/
+
+Method->GET - Time->1783057161216 - Url->/api/users/
+
+Method->POST - Time->1783057262785 - Url->/api/auth/login
+
+Method->GET - Time->1783057352144 - Url->/api/users/
+
+Method->GET - Time->1783057681015 - Url->/api/users/
+
+Method->POST - Time->1783057726083 - Url->/api/auth/login
+
+Method->POST - Time->1783057757761 - Url->/api/auth/login
+
+Method->GET - Time->1783057770932 - Url->/api/users/
+
+Method->GET - Time->1783057817047 - Url->/api/users/
+
+Method->GET - Time->1783058077480 - Url->/api/users/
+
+Method->GET - Time->1783058203599 - Url->/api/users/
+
+Method->GET - Time->1783059571772 - Url->/api/users/
+
+Method->POST - Time->1783059581243 - Url->/api/auth/login
+
+Method->POST - Time->1783068497080 - Url->/api/auth/login
+
+Method->POST - Time->1783068574677 - Url->/api/auth/refresh-token
+
+Method->POST - Time->1783068805450 - Url->/api/auth/refresh-token
+
+Method->POST - Time->1783069442225 - Url->/api/auth/refresh-token
+
+Method->POST - Time->1783069512128 - Url->/api/auth/refresh-token
+
+Method->GET - Time->1783070134952 - Url->/api/users/
+
+Method->GET - Time->1783070355675 - Url->/api/users/
+
+Method->POST - Time->1783071078364 - Url->/api/users
+
+Method->POST - Time->1783071091713 - Url->/api/users
